@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Emoji to ip converter</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+    <main>
+        <h1>Emoji to IPv4 converter</h1>
+        <br/>
+        <h3>Convert</h3>
+        <label for="firstValue">emoji: </label>
+        <input id="firstValue" type='text' onchange="convertion()">
+        <br/>
+        <label for="secondValue">ip: </label>
+        <input id="secondValue" readonly>
+      </main>
+    </body>
+    <script>
+        function convertion() {
+            let inputValue = document.getElementById('firstValue').value;
+            let result = document.getElementById('secondValue');
+            let bytes = new TextEncoder().encode(inputValue);
+            result.value = `${bytes[0]}.${bytes[1]}.${bytes[2]}.${bytes[3]}`;
+        }
+    </script>
+</html>
